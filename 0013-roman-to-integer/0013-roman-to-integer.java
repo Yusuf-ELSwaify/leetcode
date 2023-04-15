@@ -1,6 +1,6 @@
 class Solution {
     public int romanToInt(String s) {
-        int sum = 0, num = 0, prev = 0;
+        int sum = 0, num = 0;
         
         for (int i = s.length() - 1; i >= 0; i--){
           switch (s.charAt(i)){
@@ -12,8 +12,7 @@ class Solution {
             case 'D': num = 500; break;
             case 'M': num = 1000; break;
           }
-          sum += prev > num ? -num : num;
-          prev = num;
+          sum += sum >= (num * 5) ? -num : num;
         }
         return(sum);
     }
