@@ -1,15 +1,15 @@
 class Solution {
     public List<Integer> intersection(int[][] nums) {
         List<Integer> list = new LinkedList<>();
-        int[] freq = new int[1000];
+        int[] freq = new int[1001];
 
         for (int[] numArray : nums)
             for (int num : numArray)
-                ++freq[num - 1];
+                ++freq[num];
 
-        for(int i = 0; i < 1000; i++)
+        for(int i = 1; i <= 1000; i++)
             if (freq[i]  == nums.length)
-                list.add(i + 1);
+                list.add(i);
 
         return list;
     }
