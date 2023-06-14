@@ -15,15 +15,14 @@
  */
 class Solution {
     int minDifference = Integer.MAX_VALUE;
-    TreeNode prevNode;
+    int prev = -100001;
 
     void inorderTraversal(TreeNode node) {
         if (node == null)
             return;
         inorderTraversal(node.left);
-        if (prevNode != null)
-            minDifference = Math.min(minDifference, node.val - prevNode.val);
-        prevNode = node;
+        minDifference = Math.min(minDifference, node.val - prev);
+        prev = node.val;
         inorderTraversal(node.right);
     }
     
